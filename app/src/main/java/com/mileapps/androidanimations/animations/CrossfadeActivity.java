@@ -32,7 +32,7 @@ public class CrossfadeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crossfade);
-        Utilities.makeToolbar(this, true);
+        Utilities.makeToolbar(this, true, "Crossfade");
         imgBtnToolbar = (ImageButton) findViewById(R.id.imgBtnToolbar);
         content = findViewById(R.id.content);
         loading = findViewById(R.id.loading_spinner);

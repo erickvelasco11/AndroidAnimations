@@ -27,7 +27,7 @@ public class LayoutChangesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout_changes);
-        Utilities.makeToolbar(this, true);
+        Utilities.makeToolbar(this, true, "Layout changes");
         imgBtnToolbar = (ImageButton)findViewById(R.id.imgBtnToolbar);
         mContainerView = (ViewGroup) findViewById(R.id.container);
 
