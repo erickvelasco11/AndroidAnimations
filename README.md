@@ -1,4 +1,2 @@
 # AndroidAnimations
-This project are for compile many animations for Android
-
-Create README.md
+This project is for compile many animations for Android using Support library.
