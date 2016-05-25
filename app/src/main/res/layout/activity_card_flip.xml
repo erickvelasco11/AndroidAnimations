@@ -3,18 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.widget.Toolbar
+    <include
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@color/colorPrimary">
-
-        <Button
-            android:id="@+id/btnFlip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right" />
-    </android.widget.Toolbar>
+        layout="@layout/toolbar_button" />
 
     <FrameLayout
         android:id="@+id/container"

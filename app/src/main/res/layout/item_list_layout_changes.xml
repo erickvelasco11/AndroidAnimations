@@ -9,7 +9,7 @@
     android:showDividers="middle">
 
     <TextView
-        android:id="@android:id/text1"
+        android:id="@+id/txtText"
         style="?android:textAppearanceMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         android:paddingLeft="?android:listPreferredItemPaddingLeft" />
 
     <ImageButton
-        android:id="@+id/delete_button"
+        android:id="@+id/imgBtnDelete"
         android:layout_width="48dp"
         android:layout_height="match_parent"
         android:background="?android:selectableItemBackground"

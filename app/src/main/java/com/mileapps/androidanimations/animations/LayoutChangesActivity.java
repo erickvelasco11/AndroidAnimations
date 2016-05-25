@@ -31,6 +31,7 @@ public class LayoutChangesActivity extends AppCompatActivity {
         imgBtnToolbar = (ImageButton)findViewById(R.id.imgBtnToolbar);
         mContainerView = (ViewGroup) findViewById(R.id.container);
 
+        imgBtnToolbar.setBackgroundResource(android.R.drawable.ic_menu_add);
         imgBtnToolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,19 +55,23 @@ public class LayoutChangesActivity extends AppCompatActivity {
         final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
                 R.layout.item_list_layout_changes, mContainerView, false);
 
-        ((TextView) newView.findViewById(android.R.id.text1)).setText(
+        ((TextView) newView.findViewById(R.id.txtText)).setText(
                 COUNTRIES[(int) (Math.random() * COUNTRIES.length)]);
 
-        newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
+        newView.findViewById(R.id.imgBtnDelete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mContainerView.removeView(newView);
                 if (mContainerView.getChildCount() == 0) {
-                    findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
+                    findViewById(R.id.txtEmpty).setVisibility(View.VISIBLE);
                 }
             }
         });
 
         mContainerView.addView(newView, 0);
+
+        if (mContainerView.getChildCount() > 0) {
+            findViewById(R.id.txtEmpty).setVisibility(View.INVISIBLE);
+        }
     }
 }

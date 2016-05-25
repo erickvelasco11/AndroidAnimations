@@ -2,11 +2,9 @@ package com.mileapps.androidanimations.animations;
 
 import android.app.Activity;
 import android.app.FragmentManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toolbar;
+import android.widget.ImageButton;
 
 import com.mileapps.androidanimations.R;
 import com.mileapps.androidanimations.fragments.CardBackFragment;
@@ -15,19 +13,19 @@ import com.mileapps.androidanimations.fragments.CardFrontFragment;
 public class CardFlipActivity extends Activity implements FragmentManager.OnBackStackChangedListener {
 
     private boolean mShowingBack;
-    private Button btnFlip;
+    private ImageButton imgBtnFlip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_flip);
 
-        btnFlip = (Button) findViewById(R.id.btnFlip);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        imgBtnFlip = (ImageButton) findViewById(R.id.imgBtnToolbar);
+        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setActionBar(toolbar);
         }
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);*/
 
         if (savedInstanceState == null) {
             getFragmentManager()
@@ -37,7 +35,7 @@ public class CardFlipActivity extends Activity implements FragmentManager.OnBack
         } else {
             mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
         }
-        btnFlip.setOnClickListener(new View.OnClickListener() {
+        imgBtnFlip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 flipCard();

@@ -9,6 +9,9 @@
         android:id="@+id/imgBtnToolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right" />
+        android:layout_gravity="right"
+        android:layout_marginEnd="8dp"
+        android:scaleType="center"
+        android:adjustViewBounds="true"/>
 
 </android.support.v7.widget.Toolbar>
