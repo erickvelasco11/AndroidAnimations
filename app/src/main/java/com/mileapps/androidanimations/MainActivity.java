@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.mileapps.androidanimations.animations.CardFlipActivity;
+import com.mileapps.androidanimations.animations.CrossfadeActivity;
 
 import java.util.ArrayList;
 
@@ -39,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
                     case 0:
                         startActivity(new Intent(getApplicationContext(), CardFlipActivity.class));
                         break;
+                    case 1:
+                        startActivity(new Intent(getApplicationContext(), CrossfadeActivity.class));
+                        break;
                 }
             }
         });
@@ -47,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> animations() {
         ArrayList<String> myAnimations = new ArrayList<>();
         myAnimations.add("Card flip");
+        myAnimations.add("Crossfade");
         return myAnimations;
     }
 
