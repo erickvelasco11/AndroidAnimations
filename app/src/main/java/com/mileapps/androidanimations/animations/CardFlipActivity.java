@@ -1,18 +1,18 @@
 package com.mileapps.androidanimations.animations;
 
+import android.app.Activity;
 import android.app.FragmentManager;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toolbar;
 
 import com.mileapps.androidanimations.R;
 import com.mileapps.androidanimations.fragments.CardBackFragment;
 import com.mileapps.androidanimations.fragments.CardFrontFragment;
 
-public class CardFlipActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener{
+public class CardFlipActivity extends Activity implements FragmentManager.OnBackStackChangedListener {
 
     private boolean mShowingBack;
     private Button btnFlip;
@@ -24,19 +24,18 @@ public class CardFlipActivity extends AppCompatActivity implements FragmentManag
 
         btnFlip = (Button) findViewById(R.id.btnFlip);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            setActionBar(toolbar);
+        }
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
-            // If there is no saved instance state, add a fragment representing the
-            // front of the card to this activity. If there is saved instance state,
-            // this fragment will have already been added to the activity.
-            getSupportFragmentManager()
+            getFragmentManager()
                     .beginTransaction()
                     .add(R.id.container, new CardFrontFragment())
                     .commit();
         } else {
-            mShowingBack = (getSupportFragmentManager().getBackStackEntryCount() > 0);
+            mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
         }
         btnFlip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,15 +49,16 @@ public class CardFlipActivity extends AppCompatActivity implements FragmentManag
     private void flipCard() {
         if (mShowingBack) {
             getFragmentManager().popBackStack();
+            mShowingBack = false;
             return;
         }
         mShowingBack = true;
 
-        getSupportFragmentManager()
+        getFragmentManager()
                 .beginTransaction()
                 .setCustomAnimations(
-                        R.anim.card_flip_right_in, R.anim.card_flip_right_out,
-                        R.anim.card_flip_left_in, R.anim.card_flip_left_out)
+                        R.animator.card_flip_right_in, R.animator.card_flip_right_out,
+                        R.animator.card_flip_left_in, R.animator.card_flip_left_out)
                 .replace(R.id.container, new CardBackFragment())
                 .addToBackStack(null)
                 .commit();
@@ -66,6 +66,6 @@ public class CardFlipActivity extends AppCompatActivity implements FragmentManag
 
     @Override
     public void onBackStackChanged() {
-        mShowingBack = (getSupportFragmentManager().getBackStackEntryCount() > 0);
+        mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
     }
 }
