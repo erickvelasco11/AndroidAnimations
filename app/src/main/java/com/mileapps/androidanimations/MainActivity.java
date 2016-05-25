@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.mileapps.androidanimations.animations.CardFlipActivity;
 import com.mileapps.androidanimations.animations.CrossfadeActivity;
+import com.mileapps.androidanimations.animations.LayoutChangesActivity;
+import com.mileapps.androidanimations.common.Utilities;
 
 import java.util.ArrayList;
 
@@ -26,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        Utilities.makeToolbar(this, false);
 
         lstAnimations = (ListView) findViewById(R.id.lstAnimations);
         lstAdapter = new ListAdapter(animations());
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         startActivity(new Intent(getApplicationContext(), CrossfadeActivity.class));
                         break;
+                    case 2:
+                        startActivity(new Intent(getApplicationContext(), LayoutChangesActivity.class));
+                        break;
                 }
             }
         });
@@ -52,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> myAnimations = new ArrayList<>();
         myAnimations.add("Card flip");
         myAnimations.add("Crossfade");
+        myAnimations.add("Layout changes");
         return myAnimations;
     }
 

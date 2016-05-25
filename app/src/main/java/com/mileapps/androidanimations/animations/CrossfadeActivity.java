@@ -14,14 +14,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.mileapps.androidanimations.MainActivity;
 import com.mileapps.androidanimations.R;
+import com.mileapps.androidanimations.common.Utilities;
 
 public class CrossfadeActivity extends AppCompatActivity {
 
     private int mShortAnimationDuration;
-    private Button btnCrossfade;
+    private ImageButton imgBtnToolbar;
     private View loading;
     private View content;
     private boolean viewLoading = true;
@@ -30,12 +32,8 @@ public class CrossfadeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crossfade);
-        btnCrossfade = (Button)findViewById(R.id.btnCrossfade);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        Utilities.makeToolbar(this, true);
+        imgBtnToolbar = (ImageButton) findViewById(R.id.imgBtnToolbar);
         content = findViewById(R.id.content);
         loading = findViewById(R.id.loading_spinner);
 
@@ -43,7 +41,7 @@ public class CrossfadeActivity extends AppCompatActivity {
 
         mShortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-        btnCrossfade.setOnClickListener(new View.OnClickListener() {
+        imgBtnToolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(viewLoading) {

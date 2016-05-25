@@ -5,11 +5,9 @@
     android:layout_height="match_parent"
     tools:context="com.mileapps.androidanimations.MainActivity">
 
-    <android.support.v7.widget.Toolbar
+    <include
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@color/colorPrimary" />
+        layout="@layout/toolbar_no_button" />
 
     <ListView
         android:id="@+id/lstAnimations"
