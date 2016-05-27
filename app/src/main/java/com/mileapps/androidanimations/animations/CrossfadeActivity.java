@@ -37,7 +37,7 @@ public class CrossfadeActivity extends AppCompatActivity {
         content = findViewById(R.id.content);
         loading = findViewById(R.id.loading_spinner);
 
-        imgBtnToolbar.setBackgroundResource(R.drawable.ic_flip);
+        //imgBtnToolbar.setBackgroundResource(R.drawable.ic_flip);
         content.setVisibility(View.GONE);
 
         mShortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);

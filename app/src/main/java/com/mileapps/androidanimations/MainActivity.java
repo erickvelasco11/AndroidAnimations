@@ -15,6 +15,7 @@ import com.mileapps.androidanimations.animations.CardFlipActivity;
 import com.mileapps.androidanimations.animations.CrossfadeActivity;
 import com.mileapps.androidanimations.animations.LayoutChangesActivity;
 import com.mileapps.androidanimations.animations.ScreenSlideActivity;
+import com.mileapps.androidanimations.animations.ZoomActivity;
 import com.mileapps.androidanimations.common.Utilities;
 
 import java.util.ArrayList;
@@ -51,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
                     case 3:
                         startActivity(new Intent(getApplicationContext(), ScreenSlideActivity.class));
                         break;
+                    case 4:
+                        startActivity(new Intent(getApplicationContext(), ZoomActivity.class));
+                        break;
                 }
             }
         });
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         myAnimations.add("Crossfade");
         myAnimations.add("Layout changes");
         myAnimations.add("Screen slide");
+        myAnimations.add("Zoom");
         return myAnimations;
     }
 
